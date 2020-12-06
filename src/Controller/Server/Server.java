@@ -1,4 +1,6 @@
-package Server;
+package Controller.Server;
+
+import Model.Message;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -30,6 +32,11 @@ public class Server {
         }
     }
     public void boardcasting(String message){
+        for(UserThread user : UserThreads){
+            user.sendMessage(message);
+        }
+    }
+    public void boardcasting(Message message){
         for(UserThread user : UserThreads){
             user.sendMessage(message);
         }

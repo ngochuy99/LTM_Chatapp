@@ -1,7 +1,5 @@
-package Client;
+package Controller.Client;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
@@ -23,9 +21,9 @@ public class Client {
             System.out.print("What is your name? ");
             username = input.nextLine();
             //Thread to wait for write message to server
-            writeThread = new Write(socket,this);
+
             //Thread to wait for message from server
-             readThread = new Read(socket,this);
+
             readThread.start();
             writeThread.start();
 
